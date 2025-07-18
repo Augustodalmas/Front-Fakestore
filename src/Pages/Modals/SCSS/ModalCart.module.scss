@@ -1,0 +1,220 @@
+$color_1: #333;
+$color_2: #444;
+$color_3: #fff;
+$background-color_1: rgba(0, 0, 0, 0.5);
+$background-color_2: #fff;
+$background-color_3: #f44336;
+$background-color_4: #d32f2f;
+$background-color_5: #4caf50;
+$background-color_6: #388e3c;
+$background-color_7: #2196f3;
+$background-color_8: #1976d2;
+$background-color_9: #ff9800;
+$background-color_10: #fb8c00;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-color_1;
+    z-index: 1000;
+}
+
+.container_modal {
+    background-color: $background-color_2;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-out;
+
+    table {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: $color_1;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+
+.productTable {
+    width: 100%;
+    max-width: 100%;
+    max-height: 175px;
+    overflow-y: auto;
+    border-collapse: collapse;
+
+    tr {
+        width: 100%;
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+
+        &:nth-child(1) {
+            width: 2%;
+        }
+
+        &:nth-child(2) {
+            width: 15%;
+        }
+
+        &:nth-child(3) {
+            width: 12%;
+        }
+
+        &:nth-child(4) {
+            width: 5%;
+        }
+
+        &:nth-child(5) {
+            width: 25%;
+        }
+    }
+
+    img {
+        max-width: 50px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    h2 {
+        font-size: 18px;
+        color: $color_2;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+
+    button {
+        padding: 10px 20px;
+        font-size: 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 48%;
+    }
+}
+
+.rateButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%;
+}
+
+.closeButton {
+    background-color: $background-color_3;
+    color: $color_3;
+
+    &:hover {
+        background-color: $background-color_4;
+    }
+}
+
+.buyButton {
+    background-color: $background-color_5;
+    color: $color_3;
+
+    &:hover {
+        background-color: $background-color_6;
+    }
+}
+
+.downloadButton {
+    background-color: $background-color_7;
+    color: $color_3;
+
+    &:hover {
+        background-color: $background-color_8;
+    }
+}
+
+.rateButton {
+    background-color: $background-color_9;
+    color: $color_3;
+    padding: 5px 15px;
+    font-size: 14px;
+
+    &:hover {
+        background-color: $background-color_10;
+    }
+}
+
+.rateInput {
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+.remove,
+.add {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.infos {
+    display: flex;
+
+    h3:nth-of-type(1) {
+        width: 50%;
+        text-align: start;
+
+        strong {
+            color: $background-color_3;
+        }
+    }
+
+    h3:nth-of-type(2) {
+        align-self: end;
+        width: 50%;
+
+        strong {
+            color: $background-color_5;
+        }
+    }
+}

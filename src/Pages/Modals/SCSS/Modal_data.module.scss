@@ -1,0 +1,39 @@
+$color_1: #333;
+$color_2: #fff;
+$background-color_1: #fff;
+$background-color_2: #ccc;
+$background-color_3: #aaa;
+$background-color_4: #e74c3c;
+$background-color_5: #c0392b;
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.container_modal {
+    background-color: $background-color_1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.body_profile input {
+    width: 200px;
+    height: 25px;
+}
+
+.body_profile select {
+    width: 200px;
+    height: 30px;
+}

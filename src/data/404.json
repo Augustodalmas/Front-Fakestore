@@ -1,0 +1,50 @@
+[
+    {
+        "id": 400,
+        "title": "Erro 404",
+        "price": 404,
+        "description": "Produtos não encontrada!",
+        "category": "not found",
+        "image": "./imagens/404.jpg",
+        "rating": {
+            "rate": 404,
+            "count": 404
+        }
+    },
+    {
+        "id": 401,
+        "title": "Erro 404",
+        "price": 404,
+        "description": "Produtos não encontrada!",
+        "category": "not found",
+        "image": "./imagens/404.jpg",
+        "rating": {
+            "rate": 404,
+            "count": 404
+        }
+    },
+    {
+        "id": 402,
+        "title": "Erro 404",
+        "price": 404,
+        "description": "Produtos não encontrada!",
+        "category": "not found",
+        "image": "./imagens/404.jpg",
+        "rating": {
+            "rate": 404,
+            "count": 404
+        }
+    },
+    {
+        "id": 403,
+        "title": "Erro 404",
+        "price": 404,
+        "description": "Produtos não encontrada!",
+        "category": "not found",
+        "image": "./imagens/404.jpg",
+        "rating": {
+            "rate": 404,
+            "count": 404
+        }
+    }
+]

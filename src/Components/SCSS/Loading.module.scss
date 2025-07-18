@@ -1,0 +1,36 @@
+$color_1: red;
+$background-color_1: rgba(0, 0, 0, 0.5);
+$border-color_1: #000 #0000;
+
+.content_loading {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	background-color: $background-color_1;
+	h1 {
+		font-size: 50px;
+		color: $color_1;
+	}
+}
+
+$border-color_1: #000 #0000;
+
+@keyframes l1 {
+	to {
+		transform: rotate(.5turn);
+	}
+}
+.loader {
+	width: 50px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 8px solid;
+	border-color: $border-color_1;
+	animation: l1 1s infinite;
+}
