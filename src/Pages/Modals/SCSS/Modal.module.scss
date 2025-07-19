@@ -14,6 +14,7 @@ $background-color_3: blueviolet;
 $background-color_4: #dfdfdf;
 $background-color_5: #FFFFFF;
 $background-color_6: #2b32dc;
+$background-color_7: #49e6bc;
 
 @font-face {
 	font-family: 'Roboto-Semibold';
@@ -143,7 +144,8 @@ $background-color_6: #2b32dc;
 .button_buy {
 	width: 261px;
 	height: 43px;
-	background-color: $background-color_6;
+	background-color: $background-color_7;
+	border: none;
 	border-radius: 18px;
 	color: $color_6;
 	cursor: pointer;

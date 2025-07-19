@@ -10,8 +10,8 @@ import Modal_update from './Modals/Modal_update';
 import Modal_delete from './Modals/Modal_delete';
 import Modal_cart from './Modals/Modal_cart';
 import { useTranslation } from 'react-i18next'
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
+import { IoAddCircleOutline, IoListOutline, IoTimeOutline, IoSettingsOutline, IoPersonOutline, IoCartOutline } from "react-icons/io5";
 import {
     sortProd,
     filterCategory,
@@ -197,25 +197,27 @@ export default function Main() {
                     <img src="./imagens/Logo.svg" alt="BearByte" />
                 </div>
                 <div className={style.direita}>
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
-                        <a href="#" onClick={(e) => {
+                    <div className={style.dropdown_container}>
+                        <a href="#" className={style.dropdown_trigger} onClick={(e) => {
                             e.preventDefault();
                             toggleDropdown();
-                        }}>{t('actions')}</a>
+                        }}>
+                            {t('actions')} <IoIosArrowDown className={isDropdownOpen ? style.arrow_up : style.arrow_down} />
+                        </a>
                         {isDropdownOpen && (
                             <ul className={style.dropdown}>
-                                <li><a href="/create-product">{t('createProduct')}</a></li>
-                                <li><a href="/create-category">{t('createCategory')}</a></li>
-                                <li><a href="/history">{t('history')}</a></li>
-                                <li><a href='/admin'>admin</a></li>
+                                <li><a href="/create-product"><IoAddCircleOutline /> {t('createProduct')}</a></li>
+                                <li><a href="/create-category"><IoListOutline /> {t('createCategory')}</a></li>
+                                <li><a href="/history"><IoTimeOutline /> {t('history')}</a></li>
+                                <li><a href='/admin'><IoSettingsOutline /> admin</a></li>
                             </ul>
                         )}
                     </div>
                     <a href="#">{t('about')}</a>
                     {username ? (
-                        <a className={style.button} href="/profile">{t('profile')}</a>
+                        <a className={style.profile_button} href="/profile"><IoPersonOutline /> {t('profile')}</a>
                     ) : (
-                        <a className={style.button} href="/login">{t('profile')}</a>
+                        <a className={style.profile_button} href="/login"><IoPersonOutline /> {t('profile')}</a>
                     )}
                     <div className={style.bandeiras}>
                         <img src="https://flagcdn.com/w40/br.png" alt="Português" onClick={() => filterLanguage("pt-BR")} />
@@ -223,7 +225,7 @@ export default function Main() {
                         <img src="https://flagcdn.com/w40/es.png" alt="Español" onClick={() => filterLanguage("es")} />
                     </div>
                     <div onClick={handleCart} className={style.carrinho}>
-                        <a href="#"><img src="./imagens/carrinho.png" alt="Carrinho" /></a>
+                        <a href="#" className={style.cart_button}><IoCartOutline /> {t('cart')}</a>
                     </div>
                 </div>
             </div>
@@ -279,12 +281,12 @@ export default function Main() {
                             <Product
                                 id={product.id}
                                 name={product.title}
-                                url={product.imagem}
+                                url={`http://localhost:3000/img/${product.imagem[0]}`}
                                 imagensSecundarias={[
                                     `http://localhost:3000/img/${product.imagem[1]}`,
-                                    "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-                                    "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-                                    "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+                                    `http://localhost:3000/img/${product.imagem[2]}`,
+                                    `http://localhost:3000/img/${product.imagem[3]}`,
+                                    `http://localhost:3000/img/${product.imagem[4]}`,
                                 ]}
                                 categoria={product.category}
                                 rating={product.rating.rate}

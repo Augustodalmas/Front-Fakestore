@@ -8,6 +8,7 @@ import {
     FakestoreCheck,
     FakestoreUsers
 } from "../Services/fakestore";
+import { IoEyeOutline, IoArrowBackOutline, IoTimeOutline, IoCheckmarkCircleOutline, IoCloseCircleOutline } from "react-icons/io5";
 
 export default function History() {
     const [users, setUsers] = useState([]);
@@ -74,10 +75,10 @@ export default function History() {
 
     return (
         <div className={style.container}>
-            <img src="./imagens/logo-bearByte.svg" alt="BearByte" />
+            {/* <img src="./imagens/logo-bearByte.svg" alt="BearByte" /> */}
             {userLogin && cartsUser ? (
                 <div className={style.historyBox}>
-                    <h1 className={style.title}>{t("history_by")} {userLogin.user.username}</h1>
+                    <h1 className={style.title}><IoTimeOutline /> {t("history_by")} {userLogin.user.username}</h1>
                     <table className={style.table}>
                         <thead>
                             <tr>
@@ -94,17 +95,17 @@ export default function History() {
                                     <td>{cart._id}</td>
                                     <td>{dateFormated(cart.data_fechamento)}</td>
                                     <td>R$ {cart.totalprice}</td>
-                                    <td>{cart.status ? '✔️' : '❌'}</td>
+                                    <td>{cart.status ? <IoCheckmarkCircleOutline className={style.statusIcon} /> : <IoCloseCircleOutline className={style.statusIcon} />}</td>
                                     <td>
                                         <button className={style.button} onClick={(e) => handleCart(e, cart._id)}>
-                                            {t("visualize")}
+                                            <IoEyeOutline /> {t("visualize")}
                                         </button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
-                    <a href="/" className={style.backLink}>{t("back")}</a>
+                    <a href="/" className={style.backLink}><IoArrowBackOutline /> {t("back")}</a>
                     <Modal_cart isOpen={modalOpenCart} onClose={() => setModalOpenCart(false)} reference={idCart} />
                 </div>
             ) : (

@@ -157,7 +157,7 @@ const Modal_cart = ({ isOpen, onClose, reference }) => {
 
                                     {products.cart.products.map((product, index) => (
                                         <tr className={style.product} key={product.id}>
-                                            <td><img src={product.image} alt="foto" className={style.productImage} /></td>
+                                            <td><img src={`http://localhost:3000/img/${Array.isArray(product.image) ? product.image[0] : product.image}`} alt="foto" className={style.productImage} /></td>
                                             <td>{product.title}</td>
                                             <td>R$: {product.price}</td>
                                             <td>
@@ -195,17 +195,17 @@ const Modal_cart = ({ isOpen, onClose, reference }) => {
                                 </tbody>
                             </div>
                         </table>
-                        <div className={style.infos}><h3>{t('itensCart')}: <strong>{calculateTotal()}</strong></h3><h3>valor total: <strong>R$ {calculateTotalValue()}</strong> </h3></div>
+                        <div className={style.infos}><h3>{t('itensCart')}: <strong>{calculateTotal()}</strong></h3><h3>{t('ValueTotal')} <strong>R$ {calculateTotalValue()}</strong> </h3></div>
                     </>
                 ) : (
                     <h1>{t('loginRequired')}</h1>
                 )}
                 <div className={style.buttonContainer}>
-                    <button onClick={(e) => closeModal(e, onClose)} className={style.closeButton}>Sair</button>
+                    <button onClick={(e) => closeModal(e, onClose)} className={style.closeButton}>{t('exit')}</button>
                     {reference !== undefined && reference !== null ? (
-                        <button onClick={(e) => baixarNF(e)} className={style.downloadButton}>Baixar NF</button>
+                        <button onClick={(e) => baixarNF(e)} className={style.downloadButton}>{t('nf')}</button>
                     ) : (
-                        <button onClick={(e) => buyItens(e)} className={style.buyButton}>Comprar</button>
+                        <button onClick={(e) => buyItens(e)} className={style.buyButton}>{t('buyItens')}</button>
                     )}
                 </div>
             </div>

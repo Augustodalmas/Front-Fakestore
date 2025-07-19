@@ -43,8 +43,7 @@ export default function Modal({ IsOpen, setModalOpen, product }) {
                 <div className={style.modal}>
                     <div className={style.frente}>
                         <div className={style.product_image}>
-                            <img src={product.imagem} alt="imagem" />
-                            {/* <img src={`http://localhost:3000/img/${product.imagem}`} alt="imagem" /> */}
+                            <img src={Array.isArray(product.imagem) ? `http://localhost:3000/img/${product.imagem[0]}` : product.imagem} alt="imagem" />
                         </div>
                         <div className={style.corpo}>
                             <p className={style.title}>{product.title}</p>

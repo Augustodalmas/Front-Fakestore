@@ -16,7 +16,7 @@ function ProductTable({ id, name, url, categoria, rating, avaliacao, valor, onDe
         <table className={style.productTable}>
             <tbody>
                 <tr>
-                    <td><img src={`http://localhost:3000/img/${url}`} alt={name} className={style.productImage} /></td>
+                    <td><img src={`http://localhost:3000/img/${Array.isArray(url) ? url[0] : url}`} alt={name} className={style.productImage} /></td>
                     <td>{name}</td>
                     <td>{categoria}</td>
                     <td>{rating}</td>

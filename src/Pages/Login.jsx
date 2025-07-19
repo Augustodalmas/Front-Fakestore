@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { FakestoreLogin } from '../Services/fakestore'
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next'
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5"
 
 
 function Login() {
@@ -75,31 +76,29 @@ function Login() {
                     <img src="./imagens/logo-bearByte.svg" alt="BearByte" />
                     <h1>Login</h1>
                 </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><label >{t('username')}</label></td>
-                            <td><input placeholder={t('username')} type="text" {...register('username')} /></td>
-                        </tr>
-                        <tr>
-                            <td><label >{t('pass1')}</label></td>
-                            <td><input placeholder={t('pass1')} type={passwordVisible ? "text" : "password"} {...register('password1')} /></td>
-                            <td><button type="button" onClick={togglePasswordVisibility} className={style.toggleButton} >{passwordVisible ? "😶‍🌫️" : "🫣"}</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/register">{t('notaccount')} {t('register')}</a></td>
-                            {Cookies.get('tent') === 'block' ?
-                                <td><button disabled type="submit">{t('login')}</button></td> :
-                                <td><button type="submit">{t('login')}</button></td>}
-                        </tr>
-                        {/* <tr>
-                            <td></td>
-                            <td><a className={style.exit} onClick={exit}>X</a></td>
-                        </tr> */}
-                    </tbody>
-                </table>
+                <div className={style.form_fields}>
+                    <div className={style.input_group}>
+                        <label>{t('username')}</label>
+                        <input placeholder={t('username')} type="text" {...register('username', { required: true })} />
+                    </div>
+                    <div className={style.input_group}>
+                        <label>{t('pass1')}</label>
+                        <div className={style.password_field}>
+                            <input placeholder={t('pass1')} type={passwordVisible ? "text" : "password"} {...register('password1', { required: true })} />
+                            <button type="button" onClick={togglePasswordVisibility} className={style.toggleButton}>
+                                {passwordVisible ? <IoEyeOffOutline /> : <IoEyeOutline />}
+                            </button>
+                        </div>
+                    </div>
+                    <div className={style.form_actions}>
+                        <a href="/register" className={style.register_link}>{t('notaccount')} {t('register')}</a>
+                        <button type="submit" disabled={Cookies.get('tent') === 'block'} className={style.login_button}>
+                            {t('login')}
+                        </button>
+                    </div>
+                </div>
             </form>
-        </div >
+        </div>
     )
 }
 

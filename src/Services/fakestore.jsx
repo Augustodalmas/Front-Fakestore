@@ -1,9 +1,9 @@
 import showToast from '../utils/toast'
 
-const URL = 'http://localhost:3000/products/'
-const URL_user = 'http://localhost:3000/user/'
-const URL_cart = 'http://localhost:3000/cart/'
-const URL_address = 'http://localhost:3000/address/'
+const URL = 'http://localhost:5000/products/'
+const URL_user = 'http://localhost:5000/user/'
+const URL_cart = 'http://localhost:5000/cart/'
+const URL_address = 'http://localhost:5000/address/'
 const URL_cep = 'https://viacep.com.br/ws/'
 const token = localStorage.getItem('JsonWebToken')
 
@@ -476,7 +476,7 @@ export async function buscarCEP(cep) {
 
 export async function getStripe() {
     try {
-        const response = await fetch('http://localhost:3000/pagamento', {
+        const response = await fetch('http://localhost:5000/pagamento', {
             method: "POST",
             credentials: 'include',
             headers: { "Content-Type": "application/json" },
@@ -490,7 +490,7 @@ export async function getStripe() {
 
 export async function verify() {
     try {
-        const response = await fetch('http://localhost:3000/pagamento', { credentials: 'include', })
+        const response = await fetch('http://localhost:5000/pagamento', { credentials: 'include', })
         const data = response.json()
         return data
     } catch (error) {

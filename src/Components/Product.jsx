@@ -62,7 +62,7 @@ export default function Product({ id, name, url, categoria, rating, avaliacao, v
                         {quantity}
                         <button className={`${style.add} no-modal`} onClick={addCart}><IoIosAdd /></button>
                     </div>
-                    <button className={style.update} onClick={(e) => onCart(e, id, quantity)}><img src='./imagens/carrinho.png' alt={t('imagem')} /><span>adicionar ao carrinho</span></button>
+                    <button className={style.update} onClick={(e) => onCart(e, id, quantity)}><img src='./imagens/carrinho.png' alt={t('imagem')} /><span>{t('buy')}</span></button>
                 </div>
             </div>
         </div >

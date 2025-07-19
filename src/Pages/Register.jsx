@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { FakestoreRegister } from '../Services/fakestore'
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next'
+import { IoEyeOutline, IoEyeOffOutline, IoCloseOutline, IoPersonAddOutline, IoLogInOutline } from "react-icons/io5"
 
 
 function Register() {
@@ -66,45 +67,59 @@ function Register() {
         <div className={style.container_login}>
             <form className={style.form} onSubmit={handleSubmit(onSubmit)} method="post">
                 <div className={style.container_logo}>
-                    <a className={style.exit} onClick={exit}>X</a>
+                    <a className={style.exit} onClick={exit}><IoCloseOutline /></a>
                     <img src="./imagens/logo-bearByte.svg" alt="BearByte" />
-                    <h1>Register</h1>
+                    <h1><IoPersonAddOutline /> Register</h1>
                 </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><label >{t('username')}</label></td>
-                            <td><input placeholder={t('username')} type="text" {...register('username')} /></td>
-                        </tr>
-                        <tr>
-                            <td><label >{t('nome')}</label></td>
-                            <td><input placeholder={t('nome')} type="text" {...register('name')} /></td>
-                        </tr>
-                        <tr>
-                            <td><label >{t('pass1')}</label></td>
-                            <td><input placeholder={t('pass1')} type={passwordVisible ? "text" : "password"} {...register('password1')} /></td>
-                        </tr>
-                        <tr>
-                            <td><label >{t('pass2')}</label></td>
-                            <td><input placeholder={t('pass2')} type={passwordVisible ? "text" : "password"} {...register('password2')} /></td>
-                            <td><button type="button" onClick={togglePasswordVisibility} className={style.toggleButton} >{passwordVisible ? "😶‍🌫️" : "🫣"}</button></td>
-                        </tr>
-                        <tr>
-                            <td><label >Você é vendedor?</label></td>
-                            <td><input type="checkbox" {...register('vendedor')} /></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/login">{t('notaccount2')} {t('login')}</a></td>
-                            <td><button type="submit">{t('register')}</button></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className={style.form_fields}>
+                    <div className={style.input_group}>
+                        <label>{t('username')}</label>
+                        <input placeholder={t('username')} type="text" {...register('username', { required: true, minLength: 3 })} />
+                    </div>
+                    
+                    <div className={style.input_group}>
+                        <label>{t('nome')}</label>
+                        <input placeholder={t('nome')} type="text" {...register('name', { required: true })} />
+                    </div>
+                    
+                    <div className={style.input_group}>
+                        <label>{t('pass1')}</label>
+                        <div className={style.password_field}>
+                            <input placeholder={t('pass1')} type={passwordVisible ? "text" : "password"} {...register('password1', { required: true, minLength: 8 })} />
+                            <button type="button" onClick={togglePasswordVisibility} className={style.toggleButton}>
+                                {passwordVisible ? <IoEyeOffOutline /> : <IoEyeOutline />}
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div className={style.input_group}>
+                        <label>{t('pass2')}</label>
+                        <div className={style.password_field}>
+                            <input placeholder={t('pass2')} type={passwordVisible ? "text" : "password"} {...register('password2', { required: true })} />
+                            <button type="button" onClick={togglePasswordVisibility} className={style.toggleButton}>
+                                {passwordVisible ? <IoEyeOffOutline /> : <IoEyeOutline />}
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div className={style.checkbox_group}>
+                        <label>
+                            <input type="checkbox" {...register('vendedor')} />
+                            <span>Você é vendedor?</span>
+                        </label>
+                    </div>
+                    
+                    <div className={style.form_actions}>
+                        <a href="/login" className={style.login_link}>
+                            <IoLogInOutline /> {t('notaccount2')} {t('login')}
+                        </a>
+                        <button type="submit" className={style.register_button}>
+                            <IoPersonAddOutline /> {t('register')}
+                        </button>
+                    </div>
+                </div>
             </form>
-        </div >
+        </div>
     )
 }
 

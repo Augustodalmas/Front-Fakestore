@@ -6,7 +6,7 @@
     background-color: #878787;
 
     img {
-        width: 25%;
+        width: 20%;
         margin: 5%;
     }
 }
@@ -16,7 +16,7 @@
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 10px #0000001a;
-    max-width: 650px;
+    max-width: 1000px;
     max-height: 700px;
     width: 100%;
     text-align: center;
@@ -26,6 +26,15 @@
     font-size: 1.8rem;
     color: #ffffff;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    svg {
+        font-size: 1.5rem;
+        color: #49e6bc;
+    }
 }
 
 .table {
@@ -57,6 +66,9 @@
         border-bottom: 1px solid #ffffff;
         text-align: left;
         color: white;
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 
     th {
@@ -78,10 +90,19 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    svg {
+        font-size: 1.2rem;
+    }
 
     &:hover {
         background: #04c08e;
         color: white;
+        transform: translateY(-2px);
     }
 }
 
@@ -92,7 +113,9 @@
 }
 
 .backLink {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     margin-top: 1rem;
     text-decoration: none;
     background: #49e6bc;
@@ -101,14 +124,24 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    color: rgb(0, 0, 0);
+
+    svg {
+        font-size: 1.2rem;
+    }
 
     &:hover {
         background: #04c08e;
         color: white;
+        transform: translateY(-2px);
     }
 }
 
 .loading {
     font-size: 1.2rem;
     color: #ffffff;
+}
+
+.statusIcon {
+    font-size: 1.5rem;
 }
